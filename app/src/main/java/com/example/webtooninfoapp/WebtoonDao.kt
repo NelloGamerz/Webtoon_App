@@ -17,10 +17,10 @@ interface WebtoonDao {
     suspend fun getWebtoonById(webtoonId: Int): WebtoonEntity?
 
     @Query("UPDATE Webtoon SET userRating = :userRating WHERE id = :webtoonId")
-    suspend fun rateWebtoon(webtoonId: Int, userRating: Float)
+    suspend fun updateUserRating(webtoonId: Int, userRating: Float)
 
-    @Query("SELECT AVG(userRating) FROM webtoon WHERE id = :webtoonId")
-    fun getAverageRating(webtoonId: Int): Flow<Float?>
+    @Query("SELECT userRating FROM Webtoon WHERE id = :webtoonId")
+    suspend fun getUserRating(webtoonId: Int): Float?
 
     // For managing favorites separately
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -38,4 +38,10 @@ interface WebtoonDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE webtoonId = :webtoonId)")
     suspend fun isWebtoonFavorite(webtoonId: Int): Boolean
+
+    @Query("SELECT AVG(userRating) FROM Webtoon WHERE Id = :webtoonId")
+    fun getAverageRating(webtoonId: Int): Flow<Float?>
+
+    @Query("UPDATE Webtoon SET userRating = :rating WHERE Id = :webtoonId")
+    suspend fun updateWebtoonRating(webtoonId: Int, rating: Float)
 }

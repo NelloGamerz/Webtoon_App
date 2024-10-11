@@ -55,6 +55,10 @@ dependencies {
     implementation (libs.jsoup)
     implementation (libs.androidx.lifecycle.viewmodel.ktx.v261)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.glide.transformations)
+
+
+    annotationProcessor (libs.compiler)
 
     implementation (libs.androidx.room.ktx)
 }

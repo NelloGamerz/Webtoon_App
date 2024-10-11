@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
                 "https://animemangatoon.com/wp-content/uploads/2024/06/Leveling-up-my-husband-to-the-max-750x375.webp"
             ),
             Webtoon(
-                "I’m the Queen in this Life\n",
+                "I’m the Queen in this Life",
                 "Ariadne is the illegitimate daughter of a nobleman who is married to the king’s illegitimate son. Her husband Cesare conspires with her to kill his half-brother, the crown prince, to take over the throne for himself. Their plan is successful, but Ariadne’s life turns upside down when she finds her husband to betray her and marries her half-sister instead. What is more, her sister is the one who put the dagger in her heart. Ultimately, she vows to take revenge, and the heavens listen to her. She is sent back in time when she was 17 years old.",
                 "https://animemangatoon.com/wp-content/uploads/2024/06/Im-the-queen-in-this-life-750x375.webp"
             ),
@@ -153,7 +153,8 @@ class MainActivity : AppCompatActivity() {
             WebtoonEntity(
                 title = webtoon.title,
                 description = webtoon.description,
-                imageUrl = webtoon.imageUrl
+                imageUrl = webtoon.imageUrl,
+                userRating = 0f
             )
 
         }

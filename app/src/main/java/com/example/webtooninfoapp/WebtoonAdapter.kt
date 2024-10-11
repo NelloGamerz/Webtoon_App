@@ -7,6 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 class WebtoonAdapter(private val webtoonList: List<WebtoonEntity>, private val onItemClick: (WebtoonEntity) -> Unit) : RecyclerView.Adapter<WebtoonAdapter.WebtoonViewHolder>() {
 
@@ -28,7 +32,8 @@ class WebtoonAdapter(private val webtoonList: List<WebtoonEntity>, private val o
         // Assuming imageUrl is a URL, use Glide to load it
         Glide.with(holder.itemView.context)
             .load(webtoon.imageUrl)
-            .placeholder(R.drawable.ic_launcher_background) // Add a placeholder if needed
+            .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(25)))
+            .placeholder(R.drawable.image) // Add a placeholder if needed
             .into(holder.webtoonImage)
 
         holder.itemView.setOnClickListener{
